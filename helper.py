@@ -81,6 +81,7 @@ def gen_batch_function(data_folder, image_shape):
         for batch_i in range(0, len(image_paths), batch_size):
             images = []
             gt_images = []
+
             for image_file in image_paths[batch_i:batch_i+batch_size]:
                 gt_image_file = label_paths[os.path.basename(image_file)]
 
@@ -103,7 +104,7 @@ def gen_test_output(sess, logits, keep_prob, image_pl, data_folder, image_shape)
     Generate test output using the test images
     :param sess: TF session
     :param logits: TF Tensor for the logits
-    :param keep_prob: TF Placeholder for the dropout keep robability
+    :param keep_prob: TF Placeholder for the dropout keep probability
     :param image_pl: TF Placeholder for the image placeholder
     :param data_folder: Path to the folder that contains the datasets
     :param image_shape: Tuple - Shape of image
